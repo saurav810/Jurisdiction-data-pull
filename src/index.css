@@ -1,0 +1,7 @@
+/* USWDS styles are imported in main.tsx - minimal custom styles here */
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
