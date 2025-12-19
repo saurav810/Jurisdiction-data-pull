@@ -130,9 +130,14 @@ function App() {
 
     async function loadData() {
       try {
+        // Build URLs with Vite's base path for GitHub Pages compatibility
+        const base = import.meta.env.BASE_URL
+        const SUBEST_URL = `${base}data/sub-est2024.csv`
+        const ALLDATA_URL = `${base}data/co-est2024-alldata.csv`
+
         // Load places
         const placesPromise = new Promise<PlaceRow[]>((resolve, reject) => {
-          Papa.parse('/data/sub-est2024.csv', {
+          Papa.parse(SUBEST_URL, {
             download: true,
             header: true,
             skipEmptyLines: true,
@@ -147,7 +152,7 @@ function App() {
 
         // Load counties
         const countiesPromise = new Promise<CountyRow[]>((resolve, reject) => {
-          Papa.parse('/data/co-est2024-alldata.csv', {
+          Papa.parse(ALLDATA_URL, {
             download: true,
             header: true,
             skipEmptyLines: true,
